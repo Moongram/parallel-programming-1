@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Empty<T> implements GList{
@@ -29,5 +31,9 @@ public class Empty<T> implements GList{
     @Override
     public boolean isEmpty() {
         return true;
+    }
+
+    public List<T> toRep(){
+        return new ArrayList<>();
     }
 }

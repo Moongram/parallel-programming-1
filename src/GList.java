@@ -17,4 +17,13 @@ public interface GList<T> {
         return (GList<T>) Empty.SINGLETON;
     }
 
+    static GList<Integer> evens(GList<Integer> input){
+        if (input.isEmpty()) return input;
+        return input.head() % 2 == 0
+                ? evens(input.tail()).prepend(input.head())
+                : evens(input.tail());
+    }
+
+
+    List<T> toRep();
 }

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cons<T> implements GList<T> {
     private final T headVal;
     private final GList<T> tailVal;
@@ -38,5 +41,14 @@ public class Cons<T> implements GList<T> {
     @Override
     public boolean isEmpty() {
         return false;
+    }
+
+    public List<T> toRep(){
+        List<T> result = new ArrayList<>();
+        if(! this.isEmpty()){
+            result.add(this.head());
+            result.addAll(this.tail().toRep());
+        }
+        return result;
     }
 }
